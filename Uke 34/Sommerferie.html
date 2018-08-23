@@ -11,7 +11,7 @@
 
     <p> <h1 class="svart"> Min første nettside! </h1> </p>
 
-    <p>
+    <p id="hovedavsnitt">
         I sommer har jeg reist rundt ganske mye,
         jeg var i spania med dama mi. <br>
         Vi dro på delfinparken og på shopping,
@@ -25,6 +25,14 @@
         han er litt stolt av båten sin.
     </p>
 
+    <article>
+        <img id="tog" src="bilder/Tog.jpg">
+    </article>
+
+    <script>
+        document.getElementById("tog").src = "Bilder/Barn.jpg";
+        document.getElementById("hovedavsnitt").innerHTML += "Hei på deg";
+    </script>
 
 </body>
 
