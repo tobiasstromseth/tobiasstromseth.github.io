@@ -2,28 +2,26 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Hei på deg</title>
-
-    <style>
-        h1 { background-color: green; }
-    </style>
+    <title>Tobias Strømseth</title>
+    <link rel="stylesheet" href="Stilark.css">
 </head>
+
 <body>
 
-    <h1>
-        Trykk her!
+    <h1 class="Overskrift">
+        Oppgave 30.08.18
     </h1>
+
+    <h2>
+        Trykk her!
+    </h2>
 
     <p>
         Jeg heter Tobias og er 17år, og dette er min nettside som skal vise hva jeg har lært om variabler og datatyper
     </p>
 
-    <p>
-        Dette er bare for og gjøre en endring så jeg kan push´e igjen
-    </p>
-
     <script>
-        var overskriftE1 = document.querySelector("h1");
+        var overskriftE1 = document.querySelector("h2");
         overskriftE1.addEventListener("click", byttTekst);
 
         function byttTekst() {
@@ -40,8 +38,7 @@
         var sum1 = tall1 * tall2;
         var sum2 = 2 * (tall1 + tall2);
 
-        alert("Arealet av rektangelet ditt er " + sum1);
-        alert("Omkretsen av rektangelet ditt er " + sum2);
+        alert("Arealet av rektangelet ditt er " + sum1 + ", og omkretsen er " + sum2);
 
 
 
