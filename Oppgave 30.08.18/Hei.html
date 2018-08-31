@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Hei på deg</title>
+
+    <style>
+        h1 { background-color: green; }
+    </style>
+</head>
+<body>
+
+    <h1>
+        Hei på deg!
+    </h1>
+
+    <p>
+        Jeg heter Tobias og er 17år, og dette er min nettside som skal vise deg at jeg kan dette :)
+    </p>
+
+    <script>
+        var overskriftE1 = document.querySelector("h1");
+        overskriftE1.addEventListener("click", byttTekst);
+
+        function byttTekst() {
+            overskriftE1.innerHTML = "Du trykket på overskriften!";
+        }
+
+
+
+        console.log("Tobias Strømseth");
+
+        var tall1 = Number(prompt("Skriv inn høyde av et rektangel"));
+        var tall2 = Number(prompt("Skriv inn bredde av et rektangel"));
+
+        var sum1 = tall1 * tall2;
+        var sum2 = 2 * (tall1 + tall2);
+
+        alert("Arealet av rektangelet ditt er " + sum1);
+        alert("Omkretsen av rektangelet ditt er " + sum2);
+
+
+
+
+    </script>
+</body>
+</html>
