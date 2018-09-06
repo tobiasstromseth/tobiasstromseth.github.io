@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="nb">
+<head>
+    <meta charset="UTF-8">
+    <title>Adjektivs Historie</title>
+</head>
+<body>
+
+    <input id="Adj1" type="text" placeholder="Skriv et adjektiv">
+    <br>
+    <input id="Adj2" type="text" placeholder="Skriv et adjektiv">
+    <br>
+    <input id="Adj3" type="text" placeholder="Skriv et adjektiv">
+    <br>
+    <input id="Adj4" type="text" placeholder="Skriv et adjektiv">
+    <br>
+    <input id="Adj5" type="text" placeholder="Skriv et adjektiv">
+    <br>
+    <input id="Adj6" type="text" placeholder="Skriv et adjektiv">
+    <br>
+    <input id="Adj7" type="text" placeholder="Skriv et adjektiv">
+    <br>
+    <input id="Adj8" type="text" placeholder="Skriv et adjektiv">
+    <br>
+    <input id="Adj9" type="text" placeholder="Skriv et adjektiv">
+    <br>
+    <input id="Adj10" type="text" placeholder="Skriv et adjektiv">
+    <br>
+    <button id="knapp">Lag historie!</button>
+    <br>
+
+<script>
+
+    var Adj1 = document.getElementById("Adj1");
+    var Adj2 = document.getElementById("Adj2");
+    var Adj3 = document.getElementById("Adj3");
+    var Adj4 = document.getElementById("Adj4");
+    var Adj5 = document.getElementById("Adj5");
+    var Adj6 = document.getElementById("Adj6");
+    var Adj7 = document.getElementById("Adj7");
+    var Adj8 = document.getElementById("Adj8");
+    var Adj9 = document.getElementById("Adj9");
+    var Adj10 = document.getElementById("Adj10");
+
+    var knapp = document.getElementById("knapp");
+
+    knapp.onclick = function ( ) {
+        var historie = `En ${Adj1.value} vinterdag skulle den
+        ${Adj2.value} IT-klassen på overnattingstur.
+        Alle de ${Adj3.value} elevene hadde med seg
+        langrennsski, soveposer og en${Adj4.value}
+        sekk med mat og varmt tøy.  Alle gledet seg til denne
+        ${Adj5.value} turen. Kristine hadde på seg en
+        ${Adj6.value} ny lue, og den
+        ${Adj7.value} Tormod hadde på seg en
+        ${Adj8.value} jakke. Den
+        ${Adj9.value} Anne og
+        ${Adj10.value} Sabrina hadde nye langrennsski som de hadde fått til jul`
+    };
+
+    document.write(historie);
+
+</script>
+</body>
+</html>
