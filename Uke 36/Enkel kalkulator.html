@@ -6,27 +6,16 @@
 </head>
 <body>
 
-
+    <br>
     <input  id="inpTall" type="number" placeholder="Skriv inn ditt tall">
     <input  id="inpTall2" type="number" placeholder="Skriv inn ditt tall">
     <span id="spnresultat"></span>
-    <br>
-    <br>
-    <p>
-        Velg bakgrunnsfarge :)
-    </p>
-    <input id="bakgrunnsfarge" type="color" placeholder="Skriv en farge">
 
     <script>
 
         var inpTall = document.getElementById("inpTall");
         var inpTall2 = document.getElementById("inpTall2")
         var spnresultat = document.getElementById("spnresultat");
-        var btnRegnUt = document.getElementById("btnRegnUt");
-
-        var bakgrunnsfarge = document.getElementById("bakgrunnsfarge");
-        var btnByttFarge = document.getElementById("btnByttFarge");
-
 
         // console.log inpTall.value;
         // spnresultat.innerHTML(inpTall.value);
@@ -36,9 +25,6 @@
         }
         inpTall2.onkeyup = function ( ) {
             spnresultat.innerHTML = Number(inpTall2.value) + Number(inpTall.value);
-        }
-        bakgrunnsfarge.onchange = function ( ) {
-            document.body.style.backgroundColor = (bakgrunnsfarge.value);
         }
 
     </script>

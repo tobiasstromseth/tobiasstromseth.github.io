@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bredde på firkanten</title>
+    <style>
+        #minFirkant{
+            background-color: bisque;
+            width: 200px;
+            height: 200px;
+            transition: 5s;
+        }
+    </style>
+</head>
+<body>
+
+
+    <input type="range" min="0" max="1024" id="inpBredde" placeholder="Bredde">
+    <input type="range" min="0" max="1024" id="inpHøyde">
+    <br>
+    <p>Bytt farge på firkanten!</p>
+    <input id="inpFarge" type="color">
+
+    <div id="minFirkant"></div>
+
+    <script>
+
+        var inpBredde = document.getElementById("inpBredde");
+        var inpHøyde = document.getElementById("inpHøyde");
+        var inpFarge = document.getElementById("inpFarge");
+        var minFirkant = document.getElementById("minFirkant");
+
+        inpBredde.onmousemove = function () {
+          minFirkant.style.width = (inpBredde.value) + "px";
+        };
+        inpHøyde.onmousemove = function () {
+            minFirkant.style.height = (inpHøyde.value) + "px";
+        }
+        inpFarge.onchange = function () {
+            minFirkant.style.backgroundColor = (inpFarge.value);
+        }
+
+    </script>
+
+</body>
+</html>

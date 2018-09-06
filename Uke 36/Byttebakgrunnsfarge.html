@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bytt farge!</title>
+</head>
+<body>
+
+
+<p>
+    Velg bakgrunnsfarge :)
+</p>
+<input id="bakgrunnsfarge" type="color" placeholder="Skriv en farge">
+
+
+    <script>
+
+        var bakgrunnsfarge = document.getElementById("bakgrunnsfarge");
+        var btnByttFarge = document.getElementById("btnByttFarge");
+
+        bakgrunnsfarge.onchange = function ( ) {
+            document.body.style.backgroundColor = (bakgrunnsfarge.value);
+        }
+
+    </script>
+
+</body>
+</html>
