@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="nb">
+<head>
+    <meta charset="UTF-8">
+    <title>Arrey</title>
+</head>
+<body>
+    <h1>Mine favoritt filmer!</h1>
+
+<br>
+    <button id="Liste">Se hele listen!</button>
+    <span id="spnliste"></span>
+<br>
+<br>
+    <button id="knapp">Se film nummer 3!</button>
+    <span id="spnknapp"></span>
+<br>
+<br>
+<input id="inpFilm" type="text" placeholder="Skriv inn en film">
+<br>
+<button id="leggTil">Legg til!</button>
+
+<script>
+
+    var filmer = ["Marvel universe filmer", " Star-wars", " Batman", " Kommer ikke på noe mer"];
+
+    //knapper
+    var liste = document.getElementById("Liste");
+    var knapp = document.getElementById("knapp");
+    var leggT = document.getElementById("leggTil");
+
+    var inpFilm = document.getElementById("inpFilm");
+    var spnliste = document.getElementById("spnliste");
+    var spnknapp = document.getElementById("spnknapp");
+
+    liste.onclick = function () {
+        document.write(filmer)
+    };
+
+    knapp.onclick = function () {
+        document.write(filmer [2])
+    };
+    leggT.onclick = function () {
+        filmer.push(" " + inpFilm.value)
+    }
+
+
+</script>
+
+</body>
+</html>

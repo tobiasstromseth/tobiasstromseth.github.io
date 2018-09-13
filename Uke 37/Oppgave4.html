@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Oppgave 4</title>
+</head>
+<body>
+
+<p>
+    Sjekk om du er høy nok for Thundercoster
+</p>
+<input id="inpT" type="number" placeholder="Hvor høy er du?">
+<br>
+<button id="knappT">Legg til høyde</button>
+<p>
+    Sjekk om du kan ta Ragnarok
+</p>
+<input id="inpR" type="number" placeholder="Hvor høy er du?">
+<br>
+<button id="knappR">Legg til høyde</button>
+
+<script>
+
+    var thunder = document.getElementById("inpT")
+    var knappT = document.getElementById("knappT")
+
+    var ragnarok = document.getElementById("inpR")
+    var knappR = document.getElementById("knappR")
+
+    knappT.onclick = function () {
+        if(thunder.value >= 100){
+            document.write("Du kan kan ta Thundercoster! Refresh for og sjekke igjen :)")}
+        else{
+            document.write("Du kan ikke ta Thundercoster. Refresh for og sjekke igjen :)")
+        }
+    };
+    knappR.onclick = function () {
+        if(ragnarok.value >= 100 && ragnarok.value <= 180){
+            document.write("Du kan ta Ragnarok! Nyt turen! Refresh for og sjekke igjen :)")
+        }
+        else{
+            document.write("Du kan ikke ta Ragnarok. Refresh for og sjekke igjen :)")
+        }
+    }; 
+
+</script>
+
+</body>
+</html>
