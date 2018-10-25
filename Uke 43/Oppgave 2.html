@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Oppg.2</title>
+</head>
+<body>
+<h2>Her kan du sjekke arealet av en rekangel</h2>
+<input type="number" id="hoyde" placeholder="Skriv inn høyde">
+<br>
+<input type="number" id="bredde" placeholder="Skriv inn bredde">
+<div id="losning"></div>
+
+<script>
+    
+    const hoyde = document.getElementById("hoyde");
+    const bredde = document.getElementById("bredde");
+    const losning = document.getElementById("losning");
+
+    function finnAreal(h,b) {
+        return h*b;
+    }
+
+    hoyde.oninput = function () {
+        losning.innerHTML = finnAreal(Number(hoyde.value), Number(bredde.value))
+    };
+    bredde.oninput = function () {
+        losning.innerHTML = finnAreal(Number(hoyde.value), Number(bredde.value))
+    };
+    
+</script>
+
+</body>
+</html>

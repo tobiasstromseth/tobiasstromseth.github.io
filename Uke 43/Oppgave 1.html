@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Oppg.1</title>
+</head>
+<body>
+
+<input type="number" id="inputFelt">
+<br>
+<button id="knapp">Sjekk tallet ditt!</button>
+<div id="losning"></div>
+
+<script>
+    const inputFelt = document.getElementById("inputFelt");
+    const knapp = document.getElementById("knapp");
+    const losning = document.getElementById("losning");
+    
+    knapp.onclick = function storre() {
+        if (inputFelt.value > 0){
+            losning.innerHTML = "Større enn null"
+            //document.write("Større enn null")
+        }
+        else if (inputFelt.value < 0){
+            losning.innerHTML = "Mindre enn null"
+        }
+        else {
+            losning.innerHTML = "Tallet er null"
+            //document.write("Mindre enn null")
+        }
+    };
+</script>
+
+</body>
+</html>
