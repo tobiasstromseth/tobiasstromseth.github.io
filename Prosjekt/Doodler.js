@@ -20,13 +20,13 @@ Doodler.prototype.update = function () {
 
 
     this.loc.add(this.vel);
-    this.vel.mult(0.8)
+    this.vel.mult(0.8);
 };
 
 Doodler.prototype.applyForce = function(force){
 
-    this.vel.add(force)
-}
+    this.vel.add(force);
+};
 
 Doodler.prototype.draw = function () {
 
