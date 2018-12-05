@@ -1,12 +1,28 @@
 
-var GRAVITY = 0.3;
+var GRAVITY = 0.6;
 var player;
+
+var platforms = [];
 
 function setup() {
 
     createCanvas(400, 600,);
 
-    player = new Doodler(width / 2, height - 50, false, 30, color("#FFF000"));
+    player = new Doodler(width / 2, height / 2, false, 30, color("#00d8ff"));
+
+    /* starts platform, usikker på om jeg skal bruke denne */
+    // platforms.push(new platform(player.loc.x, player.loc.y + 50, 65, color("#FF80F0")));
+
+    for (var y = 0; y < height; y+= 50){
+        for (var i = 0; i < 3; i++) {
+
+            var x = noise(i, y) * width;
+
+            if (noise(y, i) > 0.5)
+                platforms.push(new platform(x, y, 55, color("#1fec1a")));
+        };
+    };
+
 };
 
 function draw() {
@@ -20,24 +36,31 @@ function draw() {
 
     if (player.loc.y > height) {
         endGame();
-        retry();
+    };
+
+    for (var i = 0; i < platforms.length; i++) {
+        platforms[i].draw();
+        if (platforms[i].collidesWith(player)) {
+
+            player.jump();
+        };
     };
 
     handleKeys();
 };
-function keyPressed() {
-    if (keyCode == 32)
-        //jump
-    player.applyForce(createVector(0, -20));
-};
+    /* function keyPressed() {
+        if (keyCode == 32)
+            //Jump
+        player.applyForce(createVector(0, -20));
+    }; */
 
 function handleKeys() {
     
     if (keyIsDown(LEFT_ARROW)) {
-        //console.log("flag");//
+        //Ball goes to the left while holding the arrow button
         player.applyForce(-1, 0);
     } else if (keyIsDown(RIGHT_ARROW)) {
-        //console.log("flag");
+        //Ball goes to the right while holding the arrow button
         player.applyForce(1, 0);
     }
 };
@@ -46,21 +69,7 @@ function endGame() {
     textAlign(CENTER);
     textSize(60);
     noStroke();
-    fill("#00FF00");
+    fill("#ff0000");
     text("Game Over!", width / 2, height / 2);
     noLoop();
 };
-function retry() {
-    textAlign(CENTER);
-    textSize(50);
-    noStroke();
-    fill("#00FF00");
-    text("Retry?", width / 2, height / 1.5);
-    noLoop();
-};
-
-/*let knapp = document.getElementById("retry");
-
-knapp.onclick = function () {
-    retry();
-};*/
