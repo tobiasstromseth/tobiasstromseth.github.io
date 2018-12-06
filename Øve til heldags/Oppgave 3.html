@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Oppgave 3</title>
+</head>
+<body>
+
+<input type="number" id="alder" placeholder="Skriv inn din alder">
+<br>
+<input id="student" type="checkbox"> Student?
+<input id="pensjonist" type="checkbox"> Pensjonist?
+<br>
+<button id="btn">Sjekk prisen!</button>
+<div id="losning"></div>
+<script>
+/*
+    var tall = Math.floor(Math.random() * 10);
+
+    if (tall > 5){
+        document.write("Tallet er mindre enn 5");
+    }
+    else if (tall == 5){
+        document.write("Tallet er 5");
+    }
+    else{
+        document.write("tallet er større enn 5");
+    }
+*/
+
+    const inp = document.getElementById("alder");
+    const knapp = document.getElementById("btn");
+    const losning = document.getElementById("losning");
+    const student = document.getElementById("student");
+    const pensjonist = document.getElementById("pensjonist");
+
+    knapp.onclick = function alder() {
+        if (inp.value < 5){
+            losning.innerHTML = "Du reiser gratis!";
+        }
+        else if (inp.value > 5 && inp.value < 18){
+            losning.innerHTML = "Billetten koster 30kr.";
+        }
+        else{
+            if (pensjonist.checked){
+                losning.innerHTML = "Billetten koster 28kr";
+            }
+            else if (student.checked){
+                losning.innerHTML = "Billetten koster 56kr";
+            }
+            else
+            losning.innerHTML = "Billetten koster 70kr";
+        }
+    }
+
+</script>
+
+</body>
+</html>

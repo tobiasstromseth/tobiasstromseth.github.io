@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Oppgave 2</title>
+</head>
+<body>
+
+<script>
+
+    //Oppgave A
+    var navn = ["Gunnhild","Per","Jens","Nina"];
+
+    document.write(navn[2]);
+
+    navn.push("Karsten");
+
+    for (let i = 0; i < navn.length; i++) {
+        console.log(navn[i]);
+    }
+
+    //Oppgave B
+
+    var bruker1 = {
+        brukerNavn: "yung.sagen",
+        passord: "Marius00"
+    };
+    var bruker2 = {
+        brukerNavn: "pureRush",
+        passord: "Espen00"
+    };
+    var bruker3 = {
+        brukerNavn: "Mr.Retard",
+        passord: "Halvor00"
+    };
+
+    bruker2.brukerNavn = "fearTheFuzzy";
+
+    console.log(bruker2.brukerNavn);
+
+</script>
+
+</body>
+</html>
