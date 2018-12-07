@@ -69,7 +69,7 @@ function endGame() {
     textAlign(CENTER);
     textSize(60);
     noStroke();
-    fill("#ff0000");
+    fill("#fcff00");
     text("Game Over!", width / 2, height / 2);
     noLoop();
 };
