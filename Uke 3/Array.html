@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Array</title>
+</head>
+<body>
+    <ul id="filmListe">
+
+    </ul>
+
+<script>
+    let filmListe = document.getElementById("filmListe");
+
+    let filmer = ["Ben Hur","Shawshank Redemption","Inglorios Basterds"];
+
+    //filmer[1]="King Kong";
+
+    for(let film of filmer){
+        console.log(film);
+        filmListe.innerHTML += "<li>" + film + "</li>";
+    }
+</script>
+</body>
+</html>

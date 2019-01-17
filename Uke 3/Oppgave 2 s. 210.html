@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Oppg. 2</title>
+</head>
+<body>
+
+    <ol id="liste"></ol>
+
+<script>
+    let bokListe = ["Harry potter","Ringenes herre","Percy jackson","Ready palyer one","Animal farm"];
+    let liste = document.querySelector("#liste");
+
+    bokListe.sort();
+
+    for (let bok of bokListe){
+        liste.innerHTML += "<li>" + bok + "</li>";
+    }
+
+</script>
+</body>
+</html>
