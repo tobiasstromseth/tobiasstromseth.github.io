@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Eksempel s. 222</title>
+</head>
+<body>
+    <div>Hei</div>
+    <div class="farge">på</div>
+    <div class="farge">deg</div>
+
+    <script>
+        let divs = document.querySelectorAll(".farge");
+
+        for (let heisann of divs){
+            heisann.style.backgroundColor = "orange";
+            heisann.style.marginLeft = "5px";
+            heisann.style.float = "left";
+            heisann.style.textAlign = "center";
+            heisann.style.width = "200px";
+            heisann.style.height = "120px";
+        }
+    </script>
+</body>
+</html>
