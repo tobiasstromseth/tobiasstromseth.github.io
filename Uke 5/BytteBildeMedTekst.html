@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tumpetitten</title>
+    <style>
+        .container{
+            position: relative;
+            width: 400px;
+            height: 280px;
+            background-color: lightgrey;
+            border: 14px solid white;
+            box-shadow: 0 0 1px darkgrey;
+            overflow: hidden;
+        }
+        .container>img{
+            position: absolute;
+            transform:scale(1);
+            transition: 0.5s 0.5s;
+        }
+        .container>article{
+            position: absolute;
+            width: 80%;
+            height: 80%;
+            padding: 10%;
+            background-color: darkgreen;
+            color: white;
+            text-align: center;
+            transform: scale(0);
+            transition: 0.5s 0s;
+        }
+        .container:hover>img{
+            transform: scale(0);
+            transition: 0.5s 0s;
+        }
+        .container:hover>article{
+            transform: scale(1);
+            transition: 0.5s 0.5s;
+
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <img src="Bilder/trump.jpg">
+        <article class="infoTekst">
+            <h1>Trumpen</h1>
+            <hr>
+            <p>He doesn't like China because they actually have a great wall.</p>
+            <p>Can someone tell Donald Trump that the Chinese already beat him the "wall" idea</p>
+            <a href="#">Les mer</a>
+        </article>
+    </div>
+</body>
+</html>
