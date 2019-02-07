@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Oppg 2</title>
+    <style>
+        body{
+            background-color: saddlebrown;
+        }
+
+        div{
+            width: 20px;
+            height: 10px;
+            background-color: goldenrod;
+            float: left;
+            margin-right: 10px;
+        }
+    </style>
+</head>
+<body>
+<div></div>
+<div></div>
+<div></div>
+<div></div>
+<div></div>
+<div></div>
+<div></div>
+<div></div>
+<div></div>
+<div></div>
+<div></div>
+<div></div>
+<div></div>
+<div></div>
+<div></div>
+<div></div>
+<div></div>
+<div></div>
+<div></div>
+<div></div>
+<div></div>
+<div></div>
+<div></div>
+<div></div>
+<div></div>
+<div></div>
+<div></div>
+<div></div>
+<div></div>
+<div></div>
+<div></div>
+<div></div>
+<div></div>
+<div></div>
+<div></div>
+<div></div>
+<div></div>
+<div></div>
+<div></div>
+<div></div>
+<div></div>
+<div></div>
+
+<script>
+    const divs = document.querySelectorAll("div");
+
+    let divCSS = [{
+        transform:"translateY(0)",
+        opacity: 1,
+        backgroundColor: "goldenrod"
+    },
+        {
+            transform:"translateY(600px)",
+            opacity: 1,
+            backgroundColor: "hotPink"
+        }
+    ];
+
+    let divEgenskaper = {
+        duration: 1500,
+        iterations: Infinity,
+        direction: "alternate",
+        easing: "ease-in-out"
+    };
+/*
+    for (div of divs){
+        div.animate(divCSS,divEgenskaper);
+    }
+    */
+    let divAnimasjoner = [];
+    for (let i = 0;i<divs.length;i++){
+        divEgenskaper.delay = i*100;
+        divAnimasjoner[i] = divs[i].animate(divCSS,divEgenskaper);
+    }
+</script>
+</body>
+</html>
