@@ -3,9 +3,65 @@
 <head>
     <meta charset="UTF-8">
     <title>Oppg. 1</title>
+    <style>
+        #overskrift{
+            opacity: 0;
+        }
+        img{
+            width: 100px;
+            position: absolute;
+        }
+    </style>
 </head>
 <body>
+<h1 id="overskrift">
+    Overskrift
+</h1>
+<img id="lol" src="lol%20copy.png" alt="">
 
 
+<script>
+    const overskrift = document.querySelector("#overskrift");
+
+    let overskriftStil = [{
+        opacity:"0"
+    },
+    {
+        opacity:"1"
+    }
+    ];
+    let overskriftEgenskaper = {
+        duration: 2000,
+        delay: 1000,
+        fill: "forwards"
+        };
+
+
+    overskrift.animate(overskriftStil,overskriftEgenskaper);
+    const lol = document.querySelector("#lol");
+
+    let lolStil = [
+        {
+            left:"0px",
+            bottom:"0px",
+            transform:"rotate(360deg)"
+        },
+        {
+            left:"1000px",
+            bottom:"0px",
+            transform:"rotate(1440deg)"
+        }
+    ];
+
+    let lolEgenskaper = {
+        duration: 3000,
+        easing: "ease-in-out",
+        direction: "alternate",
+        iterations: Infinity,
+        fill: "forwards"
+    };
+
+    lol.animate(lolStil,lolEgenskaper);
+</script>
 </body>
 </html>
