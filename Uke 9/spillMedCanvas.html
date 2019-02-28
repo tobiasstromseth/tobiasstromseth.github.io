@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Spill med canvas</title>
+</head>
+<body>
+
+<canvas id="spillCanvas" width="400" height="200"></canvas>
+
+<script>
+    const spillCanvas = document.querySelector("#spillCanvas");
+    const ctx = spillCanvas.getContext("2d");
+/*
+    ctx.fillStyle = "red";
+    ctx.fillRect(10,10,20,40)
+    */
+
+    //Globale variabler
+    let firkant ={
+        bredde:20,
+        hoyde:20,
+        farge:"blue",
+        xpos:10,
+        ypos:20
+        xfart:0,
+        yfart:0,
+        xretning:0,
+        yretning:0
+    };
+
+    // Setup
+    gameLoop();
+
+    // Funksjonsdefinisjoner
+    function gameLoop() {
+        tegnFirkant(firkant);
+        requestAnimationFrame(gameLoop);
+    }
+
+
+    function tegnFirkant(figur) {
+        ctx.fillStyle = figur.farge;
+        ctx.fillRect(figur.xpos,figur.ypos,figur.bredde,figur.hoyde);
+    }
+</script>
+</body>
+</html>
