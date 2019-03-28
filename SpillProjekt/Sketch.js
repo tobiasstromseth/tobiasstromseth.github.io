@@ -3,16 +3,18 @@ var st = 25; //Størrelse på hvert rektangel i canvas
 var DIMENSJONER = 20;
 
 var felt = []; //Arrey til canvas
+var feltKart;
+
+/*function preload() {
+    feltKart = loadStrings("Felt.txt");
+}*/
 
 function setup () {
 
     createCanvas(500, 500);
 
 
-    for (var i = 0; i < 400; i++) {
-        felt.push(new Tile(i % 20, Math.floor(i / 20), "BISCUTT"));
-
-    }
+    felt = generateFelt();
 }
 
 function draw() {
@@ -21,6 +23,26 @@ function draw() {
 
     /* Tegn Tiles */
     for (var i = 0; i < felt.length; i++){
+        console.log(i);
         felt[i].draw();
     }
+}
+
+function generateFelt() {
+
+    var f = [];
+
+    for (var i = 0; i < FELT.length; i++) {
+
+        var rad = FELT[i].split(",");
+        for (var j = 0; j < rad.length; j++) {
+
+            var type = parseTileType(rad[j]);
+            var t = new Tile(j, i, type);
+            //console.log(t);
+            f.push(t);
+        }
+    }
+
+    return f;
 }
