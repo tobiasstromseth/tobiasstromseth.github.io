@@ -23,7 +23,7 @@ function draw() {
 
     /* Tegn Tiles */
     for (var i = 0; i < felt.length; i++){
-        console.log(i);
+        //console.log(i);
         felt[i].draw();
     }
 }
