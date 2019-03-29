@@ -1,28 +1,35 @@
 
+/* Her setter jeg opp et 2D kart av feltet ved hjelp av tall i array*/
+//0 = VEGGER
+//1 = KJEKS
+//2 = TOM FIRKANT
+//3 = KIRSEBÆR
+//4 = SPØKELSE
+//5 = PAC-MAN
 var FELT = [
     "0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0",
+    "0,3,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0",
+    "0,0,0,1,0,0,0,0,0,0,1,0,0,0,0,0,1,0,0,0",
+    "0,0,0,1,0,0,0,0,0,0,1,0,0,0,0,0,1,0,0,0",
+    "0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,3,0",
+    "0,0,0,0,1,0,0,0,0,1,0,0,0,0,0,1,0,0,0,0",
+    "0,0,0,0,3,0,0,0,0,1,0,0,0,0,0,1,0,0,0,0",
     "0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0",
-    "0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0",
-    "0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0",
+    "0,0,0,0,0,0,1,1,0,0,2,0,0,1,1,0,0,0,0,0",
+    "0,3,1,1,1,1,1,1,0,4,2,4,0,1,1,1,1,1,1,0",
+    "0,1,1,1,1,1,1,1,0,4,2,4,0,1,1,1,1,1,3,0",
+    "0,0,0,0,0,0,1,1,0,0,0,0,0,1,1,0,0,0,0,0",
+    "0,1,1,1,1,1,1,1,1,3,1,1,1,1,1,1,1,1,1,0",
+    "0,0,0,0,1,0,0,0,0,0,1,0,0,0,0,1,0,0,0,0",
+    "0,0,0,0,1,0,0,0,0,0,1,0,0,0,0,1,0,0,0,0",
     "0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0",
-    "0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0",
-    "0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0",
-    "0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0",
-    "0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0",
-    "0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0",
-    "0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0",
-    "0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0",
-    "0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0",
-    "0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0",
-    "0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0",
-    "0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0",
-    "0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0",
-    "0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0",
-    "0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0",
+    "0,0,0,1,0,0,0,0,0,1,0,0,0,0,0,0,1,0,0,0",
+    "0,0,0,3,0,0,0,0,0,1,0,0,0,0,0,0,1,0,0,0",
+    "0,1,1,1,1,1,1,1,1,5,1,1,1,1,1,1,1,3,1,0",
     "0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0",
 ];
 
-var typer = ["BARRIER", "OPEN", "BISCUTT", "CHERRY"];
+var typer = ["BARRIER", "BISCUTT", "OPEN", "CHERRY", "GHOST", "PACMAN"];
 //var typer = ["BARRIER", "OPEN", "BISCUTT"];
 //var typer = ["CHERRY", "BARRIER"];
 
@@ -36,7 +43,23 @@ function Tile(x, y, type) {
     this.x = x;
     this.y = y;
     this.type = type;
+
+    this.dX = -1; //Destinasjon x, -1 en fordi det er morsomt hvis jeg får en bug så flytter alle seg opp til hjørnet hahah:)
+    this.dY = -1; //Destinasjon y
+    this.moving = false;
+
+    this.speed = 0.2;
 }
+
+Tile.prototype.update = function () {
+    if (this.moving) {
+        this.x = lerp(this.x, this.dX, this.speed);
+        this.y = lerp(this.y, this.dY, this.speed);
+
+        if (this.x == this.dX && this.y == this.dY)
+            this.moving = false;
+    }
+};
 
  Tile.prototype.draw = function () {
 
@@ -68,23 +91,41 @@ function Tile(x, y, type) {
             fill("#FF2222");
             ellipse(this.x * st + kvart_st, this.y * st + kvart_st, halv_st);
             break;
+
+        case "GHOST":
+            fill("#FF00EE");
+            stroke(0);
+            strokeWeight(1);
+            beginShape();
+            vertex(this.x * st + halv_st, this.y * st + kvart_st);
+            vertex(this.x * st + kvart_st, this.y * st + (kvart_st * 3));
+            vertex(this.x * st + (kvart_st * 3), this.y * st + (kvart_st * 3));
+            endShape(CLOSE);
+            break;
+
+        case "PACMAN":
+            stroke("#FFFF00");
+            strokeWeight(4);
+            fill("#FFFF33");
+            ellipse(this.x * st + kvart_st, this.y * st + kvart_st, halv_st);
+            break;
     }
 };
 
-function parseTileType(t) {
+Tile.prototype.move = function (x, y) {
 
-    switch (t) {
+    var dY = this.y + y;
+    var dX = this.x + x;
 
-        case "0":
-            return "BARRIER";
+    if (this.moving)
+    return;
 
-        case "1":
-            return "OPEN";
-
-        case "2":
-            return "BISCUTT";
-
-        case "3":
-            return "CHERRY";
-    }
-}
+    var destinasjonsTile = felt[dY * DIMENSJONER + dX];
+    var type = destinasjonsTile.type;
+    if (this.moving || (type == "BARRIER" && this.type != "BARRIER"))
+        console.log("du kan ikke bevege deg");
+        return; // ikke tilat bevegelse
+    this.moving = true;
+    this.dX = dX;
+    this.dY = dY;
+};

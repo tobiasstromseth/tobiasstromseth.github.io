@@ -3,7 +3,8 @@ var st = 25; //Størrelse på hvert rektangel i canvas
 var DIMENSJONER = 20;
 
 var felt = []; //Arrey til canvas
-var feltKart;
+
+var pacman;
 
 /*function preload() {
     feltKart = loadStrings("Felt.txt");
@@ -23,8 +24,23 @@ function draw() {
 
     /* Tegn Tiles */
     for (var i = 0; i < felt.length; i++){
-        //console.log(i);
+        felt[i].update();
         felt[i].draw();
+    }
+
+    styrPacman();
+}
+
+function styrPacman() {
+    if (keyIsDown(UP_ARROW)) {
+        pacman.move(0, -1);
+    } else if (keyIsDown(DOWN_ARROW)) {
+        pacman.move(0, 1);
+    } else if (keyIsDown(LEFT_ARROW)) {
+        pacman.move(-1, 0);
+        console.log("Moving");
+    } else if (keyIsDown(RIGHT_ARROW)) {
+        pacman.move(1, 0);
     }
 }
 
@@ -37,10 +53,13 @@ function generateFelt() {
         var rad = FELT[i].split(",");
         for (var j = 0; j < rad.length; j++) {
 
-            var type = parseTileType(rad[j]);
-            var t = new Tile(j, i, type);
-            //console.log(t);
-            f.push(t);
+            var type = typer[rad[j]];
+            var tile = new Tile(j, i, type);
+
+            if (tile == "PACMAN"){
+                pacman = tile;
+            }
+            f.push(tile);
         }
     }
 
