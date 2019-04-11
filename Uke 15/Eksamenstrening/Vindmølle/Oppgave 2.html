@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Oppgave 2</title>
+    <style>
+        body{
+            font-family: "Times New Roman";
+        }
+        #ramme{
+            margin-left: 10%;
+            margin-top: 5%;
+        }
+        #tekst{
+            position: relative;
+            left: 200px;
+        }
+    </style>
+</head>
+<body>
+
+<div id="ramme">
+    <div id="tekst">
+        <h3>Watt produksjon per time</h3>
+        <br>
+        "Verdiene viser hvor mange watt vindmøller vil produsere i timen."
+        <br>
+        "(Av sikkerhetsgrunner vil denne vindmøllen stanse for verdier utenfor 2.5 - 15 m/s)."
+        <br>
+        <p>
+            <i>Skriv inn verdier for vindstyrke i m/s:</i>
+        </p>
+        <p>
+            <input type="text" id="inp" placeholder="0.0">
+            <button id="btnVis">Beregn vindstyrke</button>
+        </p>
+        <p id="resultat">Ved 0 m/s gir vindmølla 0 watt i timen.</p>
+    </div>
+</div>
+
+<script>
+    var inp = document.querySelector("#inp");
+    var btn = document.querySelector("#btnVis");
+    var resultat = document.querySelector("#resultat");
+
+    var watt = [0, 2, 10, 60, 150, 400, 500];
+    var styrke = [2.4, 3.3, 5.4, 7.9, 10.7, 13.8, 15];
+    var verdi = 0;
+
+    function regnWatt(vind) {
+        var forste = -1;
+        
+        for (var i = 0;i<styrke.length;i++){
+            if (vind > forste && vind <= styrke[i]){
+                resultat.innerHTML = "Ved " + vind + " m/s gir vindmølla " + watt[i] + " watt i timen";
+                return;
+            } else {
+                forste = styrke[i];
+            }
+            if (vind > 15){
+                resultat.innerHTML = "Vindmølla er ikke aktiv ved denne styrken.";
+            }
+        }
+    }
+    
+    btn.onclick = function () {
+        var vindstyrke = Number(inp.value);
+        regnWatt(vindstyrke);
+    }
+</script>
+</body>
+</html>
