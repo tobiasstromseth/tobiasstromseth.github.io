@@ -32,15 +32,19 @@ function draw() {
 }
 
 function styrPacman() {
+
     if (keyIsDown(UP_ARROW)) {
-        pacman.move(0, -1);
+
+        pacman.move(0, -1, true);
     } else if (keyIsDown(DOWN_ARROW)) {
-        pacman.move(0, 1);
+
+        pacman.move(0, 1, true);
     } else if (keyIsDown(LEFT_ARROW)) {
-        pacman.move(-1, 0);
-        console.log("Moving");
+
+        pacman.move(-1, 0, true);
     } else if (keyIsDown(RIGHT_ARROW)) {
-        pacman.move(1, 0);
+
+        pacman.move(1, 0, true);
     }
 }
 

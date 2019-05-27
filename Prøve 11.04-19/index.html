@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>OL-Premieutdeling</title>
+    <style>
+        body{
+            font-family: "Times New Roman";
+        }
+        #boks{
+            margin-left: 10%;
+            margin-top: 5%;
+        }
+        #inp{
+            position: relative;
+            left: 200px;
+        }
+        #divGren{
+            position: relative;
+            left: 200px;
+        }
+        #divEN{
+            position: relative;
+            left: 120px;
+            width: 20px;
+            height: 10px;
+        }
+        #divTO{
+            position: relative;
+            left: 330px;
+            width: 20px;
+            height: 10px;
+        }
+        #divTRE{
+            position: relative;
+            left: 540px;
+            width: 20px;
+            height: 10px;
+        }
+
+    </style>
+</head>
+<body>
+<audio controls src="Vedlegg/norge.mp3"></audio>
+
+<div id="boks">
+    <h2>Presentasjon av pallplasser i en valgt OL gren</h2>
+
+    <div id="inp">
+        <input type="text" id="gren" placeholder="Skriv inn gren">
+        <br>
+        <br>
+        <input type="text" id="forste" placeholder="1. Plass">
+        <input type="text" id="andre" placeholder="2. Plass">
+        <input type="text" id="tredje" placeholder="3. Plass">
+        <button id="btn">Presenter vinnerene!</button>
+    </div>
+    <br>
+    <br>
+    <br>
+    <div id="divGren">
+    </div>
+    <br>
+    <div id="divEN">
+        <img src="Vedlegg/logo.png" alt="" width="200px" height="100px">
+    </div>
+    <div id="divTO">
+        <img src="Vedlegg/logo.png" alt="" width="200px" height="100px">
+    </div>
+    <div id="divTRE">
+        <img src="Vedlegg/logo.png" alt="" width="200px" height="100px">
+    </div>
+</div>
+
+
+<script>
+    var gren = document.querySelector("#gren");
+    var forste = document.querySelector("#forste");
+    var andre = document.querySelector("#andre");
+    var tredje = document.querySelector("#tredje");
+    var btn = document.querySelector("#btn");
+    var divEN = document.querySelector("#divEN");
+    var divTO = document.querySelector("#divTO");
+    var divTRE = document.querySelector("#divTRE");
+    var divGREN = document.querySelector("#divGREN");
+
+    let bildeListe = ["Vedlegg/logo.png", "Vedlegg/norge.png", "Vedlegg/italia.png", "Vedlegg/russland.png", "Vedlegg/svergie.png", "Vedlegg/tyskland.png"];
+
+    btn.onclick = function () {
+        if (forste.value === "norge" || forste.value === "Norge"){
+            divEN.innerHTML = bildeListe[1];
+        }
+        else if (forste.value === "italia" || forste.value === "Italia"){
+            divEN.innerHTML = bildeListe[2];
+        }
+        else if (forste.value === "russland" || forste.value === "Russland"){
+            divEN.innerHTML = bildeListe[3];
+        }
+        else if (forste.value === "svergie" || forste.value === "Svergie"){
+            divEN.innerHTML = bildeListe[4];
+        }
+        else if (forste.value === "tyskland" || forste.value === "Tyskland"){
+            divEN.innerHTML = bildeListe[5];
+        }
+
+        if (andre.value === "norge" || andre.value === "Norge"){
+            divTO.innerHTML = bildeListe[1];
+        }
+        else if (andre.value === "italia" || andre.value === "Italia"){
+            divTO.innerHTML = bildeListe[2];
+        }
+        else if (andre.value === "russland" || andre.value === "Russland"){
+            divTO.innerHTML = bildeListe[3];
+        }
+        else if (andre.value === "svergie" || andre.value === "Svergie"){
+            divTO.innerHTML = bildeListe[4];
+        }
+        else if (andre.value === "tyskland" || andre.value === "Tyskland"){
+            divTO.innerHTML = bildeListe[5];
+        }
+        if (tredje.value === "norge" || tredje.value === "Norge"){
+            divTRE.innerHTML = bildeListe[1];
+        }
+        else if (tredje.value === "italia" || tredje.value === "Italia"){
+            divTRE.innerHTML = bildeListe[2];
+        }
+        else if (tredje.value === "russland" || tredje.value === "Russland"){
+            divTRE.innerHTML = bildeListe[3];
+        }
+        else if (tredje.value === "svergie" || tredje.value === "Svergie"){
+            divTRE.innerHTML = bildeListe[4];
+        }
+        else if (tredje.value === "tyskland" || tredje.value === "Tyskland"){
+            divTRE.innerHTML = bildeListe[5];
+        }
+
+        function skrivGren() {
+            divGREN.innerHTML = gren.value;
+        }
+    }
+
+
+</script>
+</body>
+</html>

@@ -112,20 +112,33 @@ Tile.prototype.update = function () {
     }
 };
 
-Tile.prototype.move = function (x, y) {
+Tile.prototype.move = function(x, y, relative) {
 
-    var dY = this.y + y;
-    var dX = this.x + x;
+    var dX, dY;
 
-    if (this.moving)
-    return;
+    if (relative) { // relative to the tile
 
-    var destinasjonsTile = felt[dY * DIMENSJONER + dX];
-    var type = destinasjonsTile.type;
-    if (this.moving || (type == "BARRIER" && this.type != "BARRIER"))
-        console.log("du kan ikke bevege deg");
-        return; // ikke tilat bevegelse
-    this.moving = true;
-    this.dX = dX;
-    this.dY = dY;
+        dX = this.x + x;
+        dY = this.y + y;
+    } else {
+
+        dX = x;
+        dY = y;
+    }
+
+    if (this.moving) // no need to recalculate everything
+        return false;
+
+    var destinationTile = getTile(dX, dY);
+
+    var type = destinationTile.type;
+
+    if ((type == "BARRIER" && this.type != "BARRIER") || 	// only certain tiles may
+        (type == "GHOST" && this.type == "GHOST")) 				// move to other certain tiles
+        return false;
+
+    this.moving = true; // begin movement next update
+    this.destination = createVector(dX, dY);
+
+    return true;
 };

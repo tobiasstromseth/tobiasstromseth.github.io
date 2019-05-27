@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Oppg. 1</title>
+    <style>
+        .container{
+            position: relative;
+            width: 320px;
+            height: 240px;
+            background-color: lightgrey;
+            border: 14px solid white;
+            box-shadow: 0 0 1px darkgrey;
+            overflow: hidden;
+        }
+        .container>img{
+            position: absolute;
+            transform:scale(1);
+            transition: 0.5s 0.5s;
+        }
+        .container>article{
+            position: absolute;
+            background-color: darkgreen;
+            color: white;
+            text-align: center;
+            transform: scale(0);
+            transition: 0.5s 0s;
+        }
+        .container:hover>img{
+            transform: scale(0);
+            transition: 0.5s 0s;
+        }
+        .container:hover>article{
+            transform: scale(1);
+            transition: 0.5s 0.5s;
+
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <img id="bilde1" src="Vedlegg/sp.png" width="320" height="240">
+    <article class="infoTekst1">
+        <video id="film" src="Vedlegg/senterpartiet.mp4" width="320" height="240" autoplay></video>
+
+    </article>
+</div>
+<div class="container">
+    <img id="bilde2" src="Vedlegg/miljopartiet.png" width="320" height="240">
+    <article>
+        Trykk på bildet for å se neste bilde!
+        <img id="rulling" src="Vedlegg/bildegalleri01.jpg" width="320" height="240">
+    </article>
+</div>
+<div id="ut"></div>
+
+<script>
+    const rulling = document.querySelector("#rulling")
+
+    const bildeListe = ["Vedlegg/bildegalleri01.jpg","Vedlegg/bildegalleri02.jpg","Vedlegg/bildegalleri03.jpg"]
+
+    rulling.onclick = function(){
+        let n = Math.floor(Math.random()*bildeListe.length) // Setter n til å være et tilfeldig heltall mellom 0 og lengden på bildelisten minus 1.
+        rulling.src = bildeListe[n]; // Bytter bilde til bilde med indeks n
+    }
+    let n = 0; // lager en global variabel som har kontroll på hvilket bilde som vises
+
+</script>
+
+</body>
+</html>
