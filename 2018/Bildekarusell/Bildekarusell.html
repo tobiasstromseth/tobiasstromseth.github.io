@@ -20,11 +20,13 @@
     const forrige = document.getElementById("forrige");
     const random = document.getElementById("random");
     const bilder = document.getElementById("bilder");
-    let bildeListe = ["bilder/bilde1.jpg", "bilder/bilde2.jpg", "bilder/bilde3.jpg", "bilder/bilde4.jpg"]; //En liste med bilder
+    let bildeListe = ["bilder/bilde1.jpg", "bilder/bilde2.jpg", "bilder/bilde3.jpg", "bilder/bilde4.jpg"]; //En liste med foto
+
     random.onclick = function(){
         let n = Math.floor(Math.random()*bildeListe.length) // Setter n til å være et tilfeldig heltall mellom 0 og lengden på bildelisten minus 1.
         bilder.src = bildeListe[n]; // Bytter bilde til bilde med indeks n
     }
+
     let n = 0; // lager en global variabel som har kontroll på hvilket bilde som vises
     neste.onclick = function(){
         n++; // plusser 1 på n

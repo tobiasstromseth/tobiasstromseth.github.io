@@ -82,11 +82,11 @@ function skrivHotellInfo() {
     }
 }
 
-let spidsbergseter = new Hotell("Spidsbergseter",61284000,"post@sgh.no","bilder/spidsbergseter.jpg",[-5,-3,-2,0,2,3]);
-let rondablikk = new Hotell("Rondablikk",61294940,"post@rondablikk.no","bilder/rondablikk.jpg",[-8,-5,-5,-3,-3,-3]);
-let rondaneSPA = new Hotell("Rondane SPA",61209090,"post@rondane.no","bilder/rondaneSPA.jpg",[-10,-8,-8,-5,-5,-4]);
-let brekkeseter = new Hotell("Brekkeseter",61233711,"post@brekkeseter.no","bilder/brekkeseter.jpg",[-9,-7,-5,-5,-2,0]);
-let hjerkinn = new Hotell("Hjerkinn",61215100,"fjellstua@hjerkinn.no","bilder/hjerkinn.jpg",[-12,-10,-9,-9,-7,-7]);
+let spidsbergseter = new Hotell("Spidsbergseter",61284000,"post@sgh.no","foto/spidsbergseter.jpg",[-5,-3,-2,0,2,3]);
+let rondablikk = new Hotell("Rondablikk",61294940,"post@rondablikk.no","foto/rondablikk.jpg",[-8,-5,-5,-3,-3,-3]);
+let rondaneSPA = new Hotell("Rondane SPA",61209090,"post@rondane.no","foto/rondaneSPA.jpg",[-10,-8,-8,-5,-5,-4]);
+let brekkeseter = new Hotell("Brekkeseter",61233711,"post@brekkeseter.no","foto/brekkeseter.jpg",[-9,-7,-5,-5,-2,0]);
+let hjerkinn = new Hotell("Hjerkinn",61215100,"fjellstua@hjerkinn.no","foto/hjerkinn.jpg",[-12,-10,-9,-9,-7,-7]);
 
 let hoteller = [spidsbergseter,rondablikk,rondaneSPA,brekkeseter,hjerkinn];
 

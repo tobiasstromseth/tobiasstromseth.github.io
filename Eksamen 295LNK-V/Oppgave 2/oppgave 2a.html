@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>oppg. 2a</title>
+</head>
+<body>
+<h1>Pikselkalkulator</h1>
+<br>
+<input  id="bredde" type="number" placeholder="Skriv inn bredde">
+<input  id="høyde" type="number" placeholder="Skriv inn høyde">
+<button id="resultat">Vis reusltat!</button>
+<br>
+<span id="spnresultat"></span>
+<div id="bilde">
+    <img id="bilder" src="">
+</div>
+<br>
+<br>
+<br>
+<button id="resultat2">Sjekk antall megapiksler</button>
+<br>
+<span id="spnresultat2">Antall megapiksler:</span>
+
+<script>
+
+    var bredde = document.querySelector("#bredde");
+    var høyde = document.querySelector("#høyde");
+    var spnresultat = document.querySelector("#spnresultat");
+    var spnresultat2 = document.querySelector("#spnresultat2");
+    var resultat = document.querySelector("#resultat");
+    var resultat2 = document.querySelector("#resultat2");
+    var bilde = document.querySelector("#bilde");
+    var bilde2 = document.querySelector("#bilde2");
+    let bildeListe = ["foto/liggende.jpg", "foto/stående.jpg", "foto/kvadratisk.jpg"];
+
+    // console.log bredde.value;
+    // spnresultat.innerHTML(bredde.value);
+
+    resultat.onclick = function ( ) {
+        spnresultat.innerHTML = "Antall piksler: " + Number(høyde.value) * Number(bredde.value);
+
+        if (Number(bredde.value) >= Number(høyde.value)) {
+            x.src = "foto/liggende.jpg";
+        }
+    } //funkjonen ganger bredde og høyde for å så skrive resultatet i span elementet når man trykker på knappen
+
+    resultat2.onclick = function () {
+        spnresultat2.innerHTML = "Antall megapiksler: " + Number(høyde.value) * Number(bredde.value) / 1000000;
+    } // Denne funksjonen er litt tungvindt siden den først ganger bredde og høyde for å så dele på 1 000 000, men fikk ikke til en enklere måte
+
+
+</script>
+</body>
+</html>
